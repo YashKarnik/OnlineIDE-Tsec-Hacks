@@ -8,6 +8,12 @@
     margin-right: 120px;
 }
 
+h4 {
+    margin: 1rem 0;
+    padding: 10px 0;
+    color: #b5bcdb;
+}
+
 span {
     font-size: 30px;
     padding: 10px 5px;
