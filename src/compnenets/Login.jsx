@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useUserContext } from '../contexts/userAuthContext';
-
+import Navbar from './Navbar';
+import { LandingHuman, GoogleSvg, GithubSVG } from '../assets/svgs';
 export default function Login(props) {
 	const { login, currentUser } = useUserContext();
 	const [error, setError] = useState('');
@@ -15,12 +16,23 @@ export default function Login(props) {
 	}
 
 	return (
-		<div>
-			<button onClick={handleLogin}>Log in with google</button>
-			<p>{error && JSON.stringify(error)}</p>
-			<p>{currentUser && currentUser.displayName}</p>
-			{currentUser && <img src={currentUser.photoURL} alt='aaa' />}
-			<p>{currentUser && currentUser.name}</p>
+		<div className='landing-pg'>
+			<Navbar />
+			<div>
+				<section className='landing-btns'>
+					<button
+						type='button'
+						className='google-login-btn'
+						onClick={handleLogin}>
+						<GoogleSvg />
+						LOGIN WITH GOOGLE
+					</button>
+					<button type='button' className='github-login-btn'>
+						<GithubSVG />
+						LOGIN WITH GITHUB
+					</button>
+				</section>
+			</div>
 		</div>
 	);
 }
