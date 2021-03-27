@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import creator from 'name-creator';
 import Navbar from '../Navbar';
+import Loading from '../Loading';
 import { useUserContext } from '../../contexts/userAuthContext';
 import { db } from '../../firebase';
 
 export default function Ide(props) {
 	const [value, setValue] = useState('');
-	const [test, setTest] = useState('');
 	const [fileName, setFileName] = useState(props.match.params.filename);
 	const { logout, currentUser } = useUserContext();
 	async function handleLogout(e) {
@@ -35,19 +34,21 @@ export default function Ide(props) {
 	return (
 		<div>
 			<Navbar />
-			{JSON.stringify(test)}
 			<h1 className='text-center'>
 				&nbsp;
 				{fileName}
 			</h1>
-			<textarea
-				name='gg'
-				id=''
-				cols='192'
-				rows='10'
-				value={value.value}
-				onChange={e => setValue(e.target.value)}></textarea>
-			<br />
+			{value === '' ? (
+				<Loading />
+			) : (
+				<textarea
+					name='gg'
+					id=''
+					cols='192'
+					rows='10'
+					value={value}
+					onChange={e => setValue(e.target.value)}></textarea>
+			)}
 			<button onClick={saveFile}>Save</button>
 			<button onClick={handleLogout}>logout</button>
 		</div>

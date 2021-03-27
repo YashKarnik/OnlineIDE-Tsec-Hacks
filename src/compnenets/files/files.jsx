@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FileRowComponent from './fileRowComponent';
 import CreateNewFileForm from './CreateNewFileForm';
+import Loading from '../Loading';
 import Navbar from '../Navbar';
 import { useUserContext } from '../../contexts/userAuthContext';
 import { db } from '../../firebase';
@@ -28,18 +29,22 @@ export default function Files() {
 			<div className='files-container'>
 				<h3 className='text-center'>{currentUser.displayName}'s Files</h3>
 				<ul>
-					{filesList.map((e, i) => (
-						<Link
-							style={{ color: 'black', textDecoration: 'none' }}
-							to={`/${e.fileName}/ide`}>
-							<FileRowComponent
-								key={i}
-								fileName={e.fileName}
-								date={e.date || String(new Date()).substring(0, 16)}
-								type={e.type}
-							/>
-						</Link>
-					))}
+					{filesList.length <= 0 ? (
+						<Loading />
+					) : (
+						filesList.map((e, i) => (
+							<Link
+								style={{ color: 'black', textDecoration: 'none' }}
+								to={`/${e.fileName}/ide`}>
+								<FileRowComponent
+									key={i}
+									fileName={e.fileName}
+									date={e.date || String(new Date()).substring(0, 16)}
+									type={e.type}
+								/>
+							</Link>
+						))
+					)}
 				</ul>
 				<div
 					className='add-new-file'

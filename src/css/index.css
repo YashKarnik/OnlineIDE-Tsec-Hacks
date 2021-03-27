@@ -18,5 +18,11 @@ body {
 	background-position: left, initial;
 	background-position: 0px 23px, initial;
 }
+
+.text-center {
+	text-align: center;
+}
+
 @import 'files.css';
 @import 'landing.css';
+@import 'loading.css';
