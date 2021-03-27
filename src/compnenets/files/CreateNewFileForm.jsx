@@ -59,6 +59,7 @@ export default function CreateNewFileForm({
 				<label htmlFor=''>Language</label>
 				<select
 					name='cars'
+					style={{ padding: '20px', fontSize: '1.3rem' }}
 					onClick={e => {
 						console.log(newFile);
 						setNewFile(p => {
@@ -66,8 +67,12 @@ export default function CreateNewFileForm({
 						});
 					}}
 					id='cars'>
-					<option value='Python'>Python</option>
-					<option value='Javascript'>Javascript</option>
+					<option value='html' style={{ padding: '80px' }}>
+						html
+					</option>
+					<option value='Python' style={{ height: '80px' }}>
+						python
+					</option>
 				</select>
 			</div>
 

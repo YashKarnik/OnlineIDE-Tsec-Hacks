@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeleteSVG } from '../../assets/svgs';
+// import { DeleteSVG } from '../../assets/svgs';
 
 export default function FileRowComponent({ fileName, date, type }) {
 	return (

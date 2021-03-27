@@ -9,7 +9,7 @@
 }
 
 body {
-	overflow: hidden;
+	/* overflow: hidden; */
 	background-image: url('../assets/svgs/landing.svg'),
 		url('https://www.transparenttextures.com/patterns/cutcube.png');
 	background-repeat: no-repeat, repeat;

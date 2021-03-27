@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useUserContext } from '../contexts/userAuthContext';
 import Navbar from './Navbar';
-import { LandingHuman, GoogleSvg, GithubSVG } from '../assets/svgs';
+import { GoogleSvg, GithubSVG } from '../assets/svgs';
 export default function Login(props) {
 	const { login, currentUser } = useUserContext();
-	const [error, setError] = useState('');
 
 	async function handleLogin(e) {
 		try {
 			await login();
 			props.history.push('./ide');
-		} catch (error) {
-			setError(error);
-		}
+		} catch (error) {}
 	}
 
 	return (

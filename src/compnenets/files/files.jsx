@@ -9,6 +9,7 @@ import { db } from '../../firebase';
 export default function Files() {
 	const { currentUser } = useUserContext();
 	const [filesList, setFilesList] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const [createnewFile, setCreatenewFile] = useState(false);
 	const [newFile, setNewFile] = useState({ fileName: '', type: '', date: '' });
 	useEffect(async () => {
@@ -17,6 +18,7 @@ export default function Files() {
 		snapshot.forEach(doc => {
 			setFilesList(p => [...p, doc.data()]);
 		});
+		setLoading(false);
 		return () => setFilesList([]);
 	}, []);
 
@@ -29,13 +31,13 @@ export default function Files() {
 			<div className='files-container'>
 				<h3 className='text-center'>{currentUser.displayName}'s Files</h3>
 				<ul>
-					{filesList.length <= 0 ? (
+					{loading ? (
 						<Loading />
 					) : (
 						filesList.map((e, i) => (
 							<Link
 								style={{ color: 'black', textDecoration: 'none' }}
-								to={`/${e.fileName}/ide`}>
+								to={`${e.type}/${e.fileName}/ide`}>
 								<FileRowComponent
 									key={i}
 									fileName={e.fileName}
