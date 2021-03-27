@@ -1,0 +1,31 @@
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 13% 0;
+    float: right;
+    margin-right: 120px;
+}
+
+span {
+    font-size: 30px;
+    padding: 10px 5px;
+}
+
+svg {
+    margin-bottom: 11px;
+    /* padding: 10px 5px; */
+}
+
+@media screen and (max-width: 800px) {
+    .button {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    span {  
+        font-size: 30px;
+    }
+    
+}
