@@ -1,0 +1,20 @@
+body {
+    /* background: none; */
+}
+
+.pane{
+    background-color: white;
+    height: 635px;
+    border: 2px solid black;
+}
+
+.CodeMirror {
+    height: 620px !important;
+}
+
+.dropdown {
+    width: 100px;
+    height: 30px;
+    background-color: #eaecf5;
+    color: #4c5ba9
+}
