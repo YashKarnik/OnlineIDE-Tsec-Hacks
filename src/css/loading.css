@@ -17,3 +17,7 @@
 		transform: translate(-50%, -50%) rotate(360deg);
 	}
 }
+.save-btn {
+	background-color: red;
+	margin: 1rem auto 0.5rem auto;
+}

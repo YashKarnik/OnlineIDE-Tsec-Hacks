@@ -8,7 +8,7 @@ export default function Login(props) {
 	async function handleLogin(e) {
 		try {
 			await login();
-			props.history.push('./ide');
+			props.history.push('./files');
 		} catch (error) {}
 	}
 
@@ -24,10 +24,10 @@ export default function Login(props) {
 						<GoogleSvg />
 						LOGIN WITH GOOGLE
 					</button>
-					<button type='button' className='github-login-btn'>
+					{/* <button type='button' className='github-login-btn'>
 						<GithubSVG />
 						LOGIN WITH GITHUB
-					</button>
+					</button> */}
 				</section>
 			</div>
 		</div>

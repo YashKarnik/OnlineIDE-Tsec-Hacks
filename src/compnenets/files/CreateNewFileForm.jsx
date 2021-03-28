@@ -12,7 +12,7 @@ export default function CreateNewFileForm({
 
 	useEffect(() => {
 		setNewFile({
-			fileName: creator.generate({ number: true }).dashed,
+			fileName: creator.generate({ number: true }).dashed || 'newfile',
 			date: String(new Date()).substring(0, 16),
 			type: 'Python',
 		});
@@ -25,8 +25,8 @@ export default function CreateNewFileForm({
 			.set({
 				fileName: newFile.fileName,
 				date: newFile.date,
-				type: newFile.type,
-				value: '',
+				type: 'html',
+				value: { html: '', css: '', javascript: '' },
 			})
 			.then(e => window.location.reload());
 	}
@@ -70,17 +70,10 @@ export default function CreateNewFileForm({
 					<option value='html' style={{ padding: '80px' }}>
 						html
 					</option>
-					<option value='Python' style={{ height: '80px' }}>
-						python
-					</option>
 				</select>
 			</div>
 
-			<button
-				className='close-file-form'
-				style={{ borderRadius: '0', outline: 'none' }}
-				onClick={handleSubmit}>
-				{' '}
+			<button className='close-file-form' onClick={handleSubmit}>
 				✓
 			</button>
 			<div className='close-file-form' onClick={() => setCreatenewFile(false)}>

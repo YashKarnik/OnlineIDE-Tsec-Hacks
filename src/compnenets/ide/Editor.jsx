@@ -4,7 +4,6 @@ import 'codemirror/theme/material.css';
 import 'codemirror/addon/hint/show-hint.js';
 import 'codemirror/addon/hint/html-hint';
 import 'codemirror/addon/edit/closebrackets';
-
 import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/javascript/javascript';

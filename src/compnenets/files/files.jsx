@@ -17,6 +17,7 @@ export default function Files() {
 		const snapshot = await citiesRef.get();
 		snapshot.forEach(doc => {
 			setFilesList(p => [...p, doc.data()]);
+			console.log(doc.data());
 		});
 		setLoading(false);
 		return () => setFilesList([]);

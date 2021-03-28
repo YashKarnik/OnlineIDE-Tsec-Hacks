@@ -74,13 +74,12 @@
 	color: white;
 	height: 50px;
 	width: 50px;
-	border-radius: 50%;
 	line-height: 50px;
 	text-align: center;
 	background-color: #333;
 	transition-duration: 200ms;
 	cursor: pointer;
-	margin-top: auto;
+	margin-top: 50px;
 	margin-bottom: auto;
 }
 @media only screen and (max-width: 660px) {

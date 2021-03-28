@@ -7,9 +7,9 @@ import Editor from '../Editor';
 export default function Ide(props) {
 	const [value, setValue] = useState('');
 	const [loading, setLoading] = useState(true);
-	const [html, setHtml] = useState('');
-	const [javascript, setJavascript] = useState('');
-	const [css, setCss] = useState('');
+	const [html, setHtml] = useState('<h1>Hello</h1>');
+	const [javascript, setJavascript] = useState('console.log(4*5)');
+	const [css, setCss] = useState('h1{color:red;}');
 	const [srcDoc, setSrcDoc] = useState('');
 
 	const [fileName, setFileName] = useState(props.match.params.filename);
@@ -25,21 +25,20 @@ export default function Ide(props) {
 		console.log(value, `${currentUser.uid}/${fileName}`);
 
 		db.doc(`${currentUser.uid}/${fileName}`)
-			.update({ type: 'html', value: { html, css, javascript } })
+			.update({ value: { html, css, javascript } })
 			.then(e => console.log('success'));
 	}
 
 	useEffect(() => {
 		const docRef = db.collection(`${currentUser.uid}`).doc(`${fileName}`);
 		docRef.get().then(e => {
-			if (e.exixts) {
-				setValue(e.data().value);
-				console.log(e.data().value);
-				setHtml(e.data().value.html);
-				setCss(e.data().value.css);
-				setJavascript(e.data().value.javascript);
-				console.log(value);
-			}
+			setValue(e.data().value);
+			console.log(e.data().value);
+			setHtml(e.data().value.html);
+			setCss(e.data().value.css);
+			setJavascript(e.data().value.javascript);
+			console.log(value);
+
 			setLoading(false);
 		});
 	}, []);
@@ -90,16 +89,21 @@ export default function Ide(props) {
 				</>
 			)}
 
+			<h2>Output</h2>
 			<iframe
 				srcDoc={srcDoc}
 				title='output'
+				style={{ backgroundColor: 'grey' }}
 				sandbox='allow-scripts'
 				frameBorder='0'
 				width='100%'
 				height='100%'
 			/>
-			<button onClick={saveFile}>Save</button>
-			<button onClick={handleLogout}>logout</button>
+			<button className='github-login-btn save-btn' onClick={saveFile}>
+				Save
+			</button>
+
+			{/* <button onClick={handleLogout}>logout</button> */}
 		</div>
 	);
 }
