@@ -1,0 +1,29 @@
+@font-face {
+	font-family: Montserrat;
+	src: url(../assets/fonts/montserrat/Montserrat-Regular.ttf);
+}
+* {
+	margin: 0;
+	font-family: Montserrat, Arial, Helvetica, sans-serif;
+	padding: 0;
+}
+
+body {
+	/* overflow: hidden; */
+	background-image: url('../assets/svgs/landing.svg'),
+		url('https://www.transparenttextures.com/patterns/cutcube.png');
+	background-repeat: no-repeat, repeat;
+	background-clip: border-box, initial;
+	background-attachment: fixed, initial;
+	background-position: left, initial;
+	background-position: 0px 23px, initial;
+}
+
+.text-center {
+	text-align: center;
+}
+
+@import 'files.css';
+@import 'landing.css';
+@import 'loading.css';
+@import 'portal.css';

@@ -1,0 +1,23 @@
+.loading {
+	margin: auto;
+	background-color: inherit;
+	border: 1px solid transparent;
+	border-top: 0.2rem solid black;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 3rem;
+	position: relative;
+	animation: rot 600ms linear 0s infinite normal forwards;
+}
+@keyframes rot {
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+.save-btn {
+	background-color: red;
+	margin: 1rem auto 0.5rem auto;
+}

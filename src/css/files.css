@@ -1,0 +1,89 @@
+.files-container {
+	margin: 3rem 5rem;
+}
+.files-container > ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+}
+
+.files-row {
+	padding: 0.7rem;
+	cursor: pointer;
+	display: flex;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.files-row:hover {
+	background-color: rgb(116, 116, 116);
+	color: whitesmoke;
+	fill: white;
+}
+.delete-icon {
+	transition-duration: 100ms;
+}
+.delete-icon:hover {
+	transform: scale(1.4);
+}
+
+.add-new-file {
+	background-color: #333;
+	margin: 2rem auto;
+	width: 70px;
+	height: 70px;
+	color: white;
+	font-size: 70px;
+	line-height: 70px;
+	text-align: center;
+	transition-duration: 200ms;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.add-new-file:hover,
+.close-file-form:hover {
+	transform: scale(1.3);
+}
+
+.new-file-form {
+	justify-content: center;
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	position: relative;
+}
+.new-file-form-inputs {
+	display: flex;
+	flex-direction: column;
+}
+
+.new-file-form-inputs > input {
+	padding: 20px;
+	border-radius: 5px;
+	font-size: 1.3rem;
+}
+.new-file-form-inputs > label {
+	text-align: center;
+	font-size: 2rem;
+}
+.close-file-form {
+	font-size: 50px;
+	color: white;
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	text-align: center;
+	background-color: #333;
+	transition-duration: 200ms;
+	cursor: pointer;
+	margin-top: 50px;
+	margin-bottom: auto;
+}
+@media only screen and (max-width: 660px) {
+	.files-container {
+		margin: 1rem;
+	}
+}
