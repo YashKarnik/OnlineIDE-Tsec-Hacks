@@ -9,7 +9,7 @@ export default function Navbar() {
 		<ul className='Navbar'>
 			<li>
 				<Link to='/files' className='navbar-head'>
-					CoIDE
+					OnlineIDE
 				</Link>
 			</li>
 			<Link to='/logout'>
